@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<!-- Favicon icon -->
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('asset/matrix-admin-master/') ?>assets/images/favicon.png">
-	<title>Matrix Template - The Ultimate Multipurpose admin template</title>
+	<title>PT LONG RICH INDONESIA</title>
 	<!-- Custom CSS -->
 	<link href="<?= base_url('asset/matrix-admin-master/') ?>dist/css/style.min.css" rel="stylesheet">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

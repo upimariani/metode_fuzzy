@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2023 at 02:10 PM
+-- Generation Time: Dec 11, 2023 at 02:25 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -113,7 +113,18 @@ CREATE TABLE `variabel` (
 --
 
 INSERT INTO `variabel` (`id_variabel`, `id_user`, `nama_variabel`, `sub_kriteria`, `bobot`) VALUES
-(1, 1, 'Absensi', 'Baik', 3);
+(2, 1, 'Absensi', 'Kurang', 1),
+(3, 1, 'Absensi', 'Cukup', 2),
+(4, 1, 'Absensi', 'Baik', 3),
+(5, 1, 'Pengetahuan', 'Kurang', 1),
+(6, 1, 'Pengetahuan', 'Cukup', 2),
+(7, 1, 'Pengetahuan', 'Baik', 3),
+(8, 1, 'Kedisiplinan', 'Kurang', 1),
+(9, 1, 'Kedisiplinan', 'Cukup', 2),
+(10, 1, 'Kedisiplinan', 'Baik', 3),
+(11, 1, 'Keahlian', 'Kurang', 1),
+(12, 1, 'Keahlian', 'Cukup', 2),
+(13, 1, 'Keahlian', 'Baik', 3);
 
 --
 -- Indexes for dumped tables
@@ -169,7 +180,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `variabel`
 --
 ALTER TABLE `variabel`
-  MODIFY `id_variabel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_variabel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
