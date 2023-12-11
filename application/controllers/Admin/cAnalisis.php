@@ -8,33 +8,43 @@ class cAnalisis extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('mAnalisis');
+		$this->load->model('mKaryawan');
 	}
 
 
 	public function index()
 	{
+		$data = array(
+			'hasil' => $this->mAnalisis->select_hasil()
+		);
 		$this->load->view('Admin/Layouts/head');
 		$this->load->view('Admin/Layouts/aside');
-		$this->load->view('Admin/Analisis/vAnalisis');
+		$this->load->view('Admin/Analisis/vAnalisis', $data);
 		$this->load->view('Admin/Layouts/footer');
 	}
 	public function create()
 	{
-		$this->form_validation->set_rules('date', 'Tanggal Panen', 'required');
-		$this->form_validation->set_rules('pakan', 'Pakan Bebek', 'required');
-		$this->form_validation->set_rules('umur', 'Umur Bebek', 'required');
-		$this->form_validation->set_rules('jenis', 'Jenis Bebek', 'required');
+		$this->form_validation->set_rules('karyawan', 'Karyawan', 'required');
+		$this->form_validation->set_rules('absensi', 'Absensi', 'required');
+		$this->form_validation->set_rules('pengetahuan', 'Pengetahuan', 'required');
+		$this->form_validation->set_rules('kedisiplinan', 'Kedisiplinan', 'required');
+		$this->form_validation->set_rules('keahlian', 'Keahlian', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
+			$data = array(
+				'karyawan' => $this->mAnalisis->karyawan()
+			);
 			$this->load->view('Admin/Layouts/head');
 			$this->load->view('Admin/Layouts/aside');
-			$this->load->view('Admin/Analisis/vTambahAnalisis');
+			$this->load->view('Admin/Analisis/vTambahAnalisis', $data);
 			$this->load->view('Admin/Layouts/footer');
 		} else {
 			$data = array(
-				'pakan' => $this->input->post('pakan'),
-				'umur' => $this->input->post('umur'),
-				'jenis' => $this->input->post('jenis')
+				'karyawan' => $this->input->post('karyawan'),
+				'absensi' => $this->input->post('absensi'),
+				'pengetahuan' => $this->input->post('pengetahuan'),
+				'kedisiplinan' => $this->input->post('kedisiplinan'),
+				'keahlian' => $this->input->post('keahlian')
 			);
 			$this->load->view('Admin/Layouts/head');
 			$this->load->view('Admin/Layouts/aside');
@@ -60,20 +70,31 @@ class cAnalisis extends CI_Controller
 		// echo $total_min;
 		// echo '<br>';
 
-		$defuzifikasi = round($total_d_hasil / $total_min, 2);
+		$defuzifikasi = 0;
+		if ($total_d_hasil != 0) {
+			$defuzifikasi = round($total_d_hasil / $total_min, 2);
+		}
+
+
 		// echo $defuzifikasi;
-		if ($defuzifikasi >= 0 && $defuzifikasi <= 5) {
+		if ($defuzifikasi >= 0 && $defuzifikasi <= 1) {
 			$hasil_status = 'Tidak Layak';
-		} else if ($defuzifikasi > 5 && $defuzifikasi <= 10) {
+		} else if ($defuzifikasi > 1) {
 			$hasil_status = 'Layak';
 		}
+
+
 
 		$data = array(
 			'defuzifikasi' => $defuzifikasi,
 			'hasil_status' => $hasil_status,
-			'pakan' => $this->input->post('pakan'),
-			'umur' => $this->input->post('umur'),
-			'jenis' => $this->input->post('jenis')
+			'absensi' => $this->input->post('absensi'),
+			'pengetahuan' => $this->input->post('pengetahuan'),
+			'kedisiplinan' => $this->input->post('kedisiplinan'),
+			'keahlian' => $this->input->post('keahlian'),
+			'karyawan' => $this->input->post('karyawan'),
+			'periode' => date('Y-m-d'),
+
 		);
 
 		$this->load->view('Admin/Layouts/head');
@@ -81,17 +102,25 @@ class cAnalisis extends CI_Controller
 		$this->load->view('Admin/Analisis/vHasil', $data);
 		$this->load->view('Admin/Layouts/footer');
 	}
-	public function insert()
+	public function insert($id_karyawan)
 	{
 		$data = array(
-			'pakan_bbk' => $this->input->post('pakan'),
-			'umur_bbk' => $this->input->post('umur'),
-			'jenis' => $this->input->post('jenis'),
+			'id_karyawan' => $id_karyawan,
+			'absensi' => $this->input->post('absensi'),
+			'pengetahuan' => $this->input->post('pengetahuan'),
+			'kedisiplinan' => $this->input->post('kedisiplinan'),
+			'keahlian' => $this->input->post('keahlian'),
 			'hasil' => $this->input->post('defuzifikasi'),
-			'status' => $this->input->post('hasil')
+			'tgl_analisis' => date('Y-m-d')
 		);
 		$this->mAnalisis->insert($data);
 		$this->session->set_flashdata('success', 'Data Analisis Berhasil Disimpan!!!');
+		redirect('Admin/cAnalisis', 'refresh');
+	}
+	public function delete($id_lap)
+	{
+		$this->mAnalisis->delete($id_lap);
+		$this->session->set_flashdata('success', 'Data Analisis Berhasil Dihapus!!!');
 		redirect('Admin/cAnalisis', 'refresh');
 	}
 }

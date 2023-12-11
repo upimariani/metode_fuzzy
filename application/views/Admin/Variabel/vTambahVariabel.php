@@ -5,12 +5,12 @@
 	<div class="page-breadcrumb">
 		<div class="row">
 			<div class="col-12 d-flex no-block align-items-center">
-				<h4 class="page-title"><i class="mdi mdi-account-circle font-24"></i> Pengelola</h4>
+				<h4 class="page-title"><i class="mdi mdi-chart-areaspline"></i> Variabel Perhitungan</h4>
 				<div class="ml-auto text-right">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Library</li>
+							<li class="breadcrumb-item active" aria-current="page">Variabel</li>
 						</ol>
 					</nav>
 				</div>
@@ -30,34 +30,35 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="card">
-					<form action="<?= base_url('Admin/cPengelola/update/' . $pengelola->id_pengelola) ?>" method="POST" class="form-horizontal">
+					<form action="<?= base_url('Admin/cVariabel/create') ?>" method="POST" class="form-horizontal">
 						<div class="card-body">
-							<h4 class="card-title">Update Data Pengelola</h4>
+							<h4 class="card-title">Tambah Variabel Perhitungan</h4>
+
 							<div class="form-group row">
-								<label for="fname" class="col-sm-3 text-right control-label col-form-label">Nama Pengelola</label>
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Nama Variabel</label>
 								<div class="col-sm-9">
-									<input type="text" value="<?= $pengelola->nama_pengelola ?>" name="nama" class="form-control" id="fname" placeholder="Masukkan Nama Pengelola">
+									<input type="text" name="nama" class="form-control" id="lname" placeholder="Masukkan Nama Variabel">
 									<?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Alamat Pengelola</label>
+								<label for="email1" class="col-sm-3 text-right control-label col-form-label">Sub Kriteria</label>
 								<div class="col-sm-9">
-									<input type="text" name="alamat" value="<?= $pengelola->alamat_pengelola ?>" class="form-control" id="lname" placeholder="Masukkan Alamat Pengelola">
-									<?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
+									<input type="text" name="sub" class="form-control" id="email1" placeholder="Masukkan Sub Kriteria">
+									<?= form_error('sub', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="lname" class="col-sm-3 text-right control-label col-form-label">No Telepon</label>
+								<label for="email1" class="col-sm-3 text-right control-label col-form-label">Bobot</label>
 								<div class="col-sm-9">
-									<input type="text" name="no_hp" value="<?= $pengelola->no_hp_pengelola ?>" class="form-control" id="lname" placeholder="Masukkan No Telepon Pengelola">
-									<?= form_error('no_hp', '<small class="text-danger">', '</small>'); ?>
+									<input type="text" name="bobot" class="form-control" id="email1" placeholder="Masukkan Bobot">
+									<?= form_error('bobot', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 						</div>
 						<div class="border-top">
 							<div class="card-body">
-								<button type="submit" class="btn btn-success"><i class="mdi mdi-bookmark-check"></i> Perbaharui</button>
+								<button type="submit" class="btn btn-success"><i class="mdi mdi-bookmark-check"></i> Save</button>
 
 							</div>
 						</div>

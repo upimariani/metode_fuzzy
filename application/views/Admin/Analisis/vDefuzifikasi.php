@@ -33,135 +33,174 @@
 					<h3>Hasil Keanggotaan Fuzzyfikasi</h3>
 					<form action="<?= base_url('Admin/cAnalisis/defuzifikasi') ?>" method="POST">
 						<?php
-						$pakan = $pakan;
-						$umur = $umur;
-						$jenis = $jenis;
+						$absensi = $absensi;
+						$pengetahuan = $pengetahuan;
+						$kedisiplinan = $kedisiplinan;
+						$keahlian = $keahlian;
 
-						// echo '<br>' . $pakan;
-						// echo '<br>' . $umur;
-						// echo '<br>' . $jenis;
-						$a_pakan = array();
-						$a_umur = array();
-						$a_jenis = array();
+						// echo '<br>' . $absensi;
+						// echo '<br>' . $pengetahuan;
+						// echo '<br>' . $kedisiplinan;
+						$a_absensi = array();
+						$a_pengetahuan = array();
+						$a_kedisiplinan = array();
+						$a_keahlian = array();
 
-						$v_pakan = array();
-						$v_umur = array();
-						$v_jenis = array();
+						$v_absensi = array();
+						$v_pengetahuan = array();
+						$v_kedisiplinan = array();
+						$v_keahlian = array();
 
-						if ($pakan >= '0' && $pakan <= '10') {
-							$v_pakan[] = 'Bekatul';
-							if ($pakan <= 5) {
-								$a_pakan[] = 1;
-							} else if ($pakan > 5 && $pakan <= 10) {
-								$a_pakan[] = (10 - $pakan) / 5;
-							} else if ($pakan > 10) {
-								$a_pakan[] = 0;
+
+						//absensi
+						if ($absensi >= '0' && $absensi <= '70') {
+							$v_absensi[] = 'Kurang';
+							if ($absensi <= 60) {
+								$a_absensi[] = 1;
+							} else if ($absensi > 60 && $absensi <= 70) {
+								$a_absensi[] = (70 - $absensi) / 10;
+							} else if ($absensi > 70) {
+								$a_absensi[] = 0;
 							}
 						}
-						if ($pakan > '5' && $pakan <= '20') {
-							$v_pakan[] = 'Jagung';
-							if ($pakan <= 5 || $pakan >= 20) {
-								$a_pakan[] = 0;
-							} else if ($pakan > 5 && $pakan <= 10) {
-								$a_pakan[] = ($pakan - 5) / 5;
-							} else if ($pakan > 10 && $pakan <= 20) {
-								$a_pakan[] = (20 - $pakan) / 10;
+						if ($absensi > '60' && $absensi <= '80') {
+							$v_absensi[] = 'Cukup';
+							if ($absensi <= 60 || $absensi >= 80) {
+								$a_absensi[] = 0;
+							} else if ($absensi > 60 && $absensi <= 70) {
+								$a_absensi[] = ($absensi - 60) / 10;
+							} else if ($absensi > 70 && $absensi < 80) {
+								$a_absensi[] = (80 - $absensi) / 10;
 							}
 						}
-						if ($pakan > '10' && $pakan <= '20') {
-							$v_pakan[] = 'Kepala Giling';
-							if ($pakan <= 10) {
-								$a_pakan[] = 0;
-							} else if ($pakan > 10 && $pakan <= 20) {
-								$a_pakan[] = ($pakan - 10) / 10;
-							} else if ($pakan > 20) {
-								$a_pakan[] = 1;
-							}
-						}
-
-						// echo '<br>';
-
-						if ($umur >= '0' && $umur <= '24') {
-							$v_umur[] = 'Fase 1';
-							if ($umur <= 7) {
-								$a_umur[] = 1;
-							} else if ($umur > 7 && $umur <= 24) {
-								$a_umur[] = (24 - $umur) / 17;
-							} else if ($umur > 24) {
-								$a_umur[] = 0;
-							}
-						}
-						if ($umur > '7' && $umur <= '96') {
-							$v_umur[] = 'Fase 2';
-							if ($umur <= 7 || $umur >= 96) {
-								$a_umur[] = 0;
-							} else if ($umur > 7 && $umur <= 24) {
-								$a_umur[] = ($umur - 7) / 17;
-							} else if ($umur > 24 && $umur < 96) {
-								$a_umur[] = (96 - $umur) / 72;
-							}
-						}
-						if ($umur > '24' && $umur <= '96') {
-							$v_umur[] = 'Fase 3';
-							if ($umur <= 24) {
-								$a_umur[] = 0;
-							} else if ($umur > 24 && $umur <= 96) {
-								$a_umur[] = ($umur - 24) / 72;
-							} else if ($umur > 96) {
-								$a_umur[] = 1;
+						if ($absensi > '70' && $absensi <= '80') {
+							$v_absensi[] = 'Baik';
+							if ($absensi <= 60) {
+								$a_absensi[] = 0;
+							} else if ($absensi > 70 && $absensi <= 80) {
+								$a_absensi[] = ($absensi - 70) / 10;
+							} else if ($absensi > 80) {
+								$a_absensi[] = 1;
 							}
 						}
 
 						// echo '<br>';
-						if ($jenis >= '0' && $jenis <= '20') {
-							$v_jenis[] = 'Tegal';
-							if ($jenis <= 15) {
-								$a_jenis[] = 1;
-							} else if ($jenis > 15 && $jenis <= 20) {
-								$a_jenis[] = (20 - $jenis) / 5;
-							} else if ($jenis < 20) {
-								$a_jenis[] = 0;
+
+						//pengetahuan
+						if ($pengetahuan >= '0' && $pengetahuan <= '70') {
+							$v_pengetahuan[] = 'Kurang';
+							if ($pengetahuan <= 60) {
+								$a_pengetahuan[] = 1;
+							} else if ($pengetahuan > 60 && $pengetahuan <= 70) {
+								$a_pengetahuan[] = (70 - $pengetahuan) / 10;
+							} else if ($pengetahuan > 70) {
+								$a_pengetahuan[] = 0;
 							}
 						}
-						if ($jenis > '15' && $jenis <= '30') {
-							$v_jenis[] = 'Alabio';
-							if ($jenis <= 15 || $jenis >= 30) {
-								$a_jenis[] = 0;
-							} else if ($jenis > 15 && $jenis <= 20) {
-								$a_jenis[] = ($jenis - 15) / 5;
-							} else if ($jenis > 20 && $jenis < 30) {
-								$a_jenis[] = (30 - $jenis) / 10;
+						if ($pengetahuan > '60' && $pengetahuan <= '80') {
+							$v_pengetahuan[] = 'Cukup';
+							if ($pengetahuan <= 60 || $pengetahuan >= 80) {
+								$a_pengetahuan[] = 0;
+							} else if ($pengetahuan > 60 && $pengetahuan <= 70) {
+								$a_pengetahuan[] = ($pengetahuan - 60) / 10;
+							} else if ($pengetahuan > 70 && $pengetahuan < 80) {
+								$a_pengetahuan[] = (80 - $pengetahuan) / 10;
 							}
 						}
-						if ($jenis > '20' && $jenis <= '30') {
-							$v_jenis[] = 'Mojosari';
-							if ($jenis <= 20) {
-								$a_jenis[] = 0;
-							} else if ($jenis >= 15 && $jenis < 20) {
-								$a_jenis[] = ($jenis - 20) / 5;
-							} else if ($jenis > 15 && $jenis < 30) {
-								$a_jenis[] = (30 - $jenis) / 10;
+						if ($pengetahuan > '70' && $pengetahuan <= '80') {
+							$v_pengetahuan[] = 'Baik';
+							if ($pengetahuan <= 60) {
+								$a_pengetahuan[] = 0;
+							} else if ($pengetahuan > 70 && $pengetahuan <= 80) {
+								$a_pengetahuan[] = ($pengetahuan - 70) / 10;
+							} else if ($pengetahuan > 80) {
+								$a_pengetahuan[] = 1;
 							}
 						}
 
-						// echo 'Pakan Bebek <br>';
-						// for ($i = 0; $i < sizeof($a_pakan); $i++) {
-						// 	echo $a_pakan[$i];
-						// 	echo $v_pakan[$i];
+						// echo '<br>';
+						//kedisiplinan
+						if ($kedisiplinan >= '0' && $kedisiplinan <= '70') {
+							$v_kedisiplinan[] = 'Kurang';
+							if ($kedisiplinan <= 60) {
+								$a_kedisiplinan[] = 1;
+							} else if ($kedisiplinan > 60 && $kedisiplinan <= 70) {
+								$a_kedisiplinan[] = (70 - $kedisiplinan) / 10;
+							} else if ($kedisiplinan > 70) {
+								$a_kedisiplinan[] = 0;
+							}
+						}
+						if ($kedisiplinan > '60' && $kedisiplinan <= '80') {
+							$v_kedisiplinan[] = 'Cukup';
+							if ($kedisiplinan <= 60 || $kedisiplinan >= 80) {
+								$a_kedisiplinan[] = 0;
+							} else if ($kedisiplinan > 60 && $kedisiplinan <= 70) {
+								$a_kedisiplinan[] = ($kedisiplinan - 60) / 10;
+							} else if ($kedisiplinan > 70 && $kedisiplinan < 80) {
+								$a_kedisiplinan[] = (80 - $kedisiplinan) / 10;
+							}
+						}
+						if ($kedisiplinan > '70' && $kedisiplinan <= '80') {
+							$v_kedisiplinan[] = 'Baik';
+							if ($kedisiplinan <= 60) {
+								$a_kedisiplinan[] = 0;
+							} else if ($kedisiplinan > 70 && $kedisiplinan <= 80) {
+								$a_kedisiplinan[] = ($kedisiplinan - 70) / 10;
+							} else if ($kedisiplinan > 80) {
+								$a_kedisiplinan[] = 1;
+							}
+						}
+
+						//keahlian
+						if ($keahlian >= '0' && $keahlian <= '70') {
+							$v_keahlian[] = 'Kurang';
+							if ($keahlian <= 60) {
+								$a_keahlian[] = 1;
+							} else if ($keahlian > 60 && $keahlian <= 70) {
+								$a_keahlian[] = (70 - $keahlian) / 10;
+							} else if ($keahlian > 70) {
+								$a_keahlian[] = 0;
+							}
+						}
+						if ($keahlian > '60' && $keahlian <= '80') {
+							$v_keahlian[] = 'Cukup';
+							if ($keahlian <= 60 || $keahlian >= 80) {
+								$a_keahlian[] = 0;
+							} else if ($keahlian > 60 && $keahlian <= 70) {
+								$a_keahlian[] = ($keahlian - 60) / 10;
+							} else if ($keahlian > 70 && $keahlian < 80) {
+								$a_keahlian[] = (80 - $keahlian) / 10;
+							}
+						}
+						if ($keahlian > '70' && $keahlian <= '80') {
+							$v_keahlian[] = 'Baik';
+							if ($keahlian <= 60) {
+								$a_keahlian[] = 0;
+							} else if ($keahlian > 70 && $keahlian <= 80) {
+								$a_keahlian[] = ($keahlian - 70) / 10;
+							} else if ($keahlian > 80) {
+								$a_keahlian[] = 1;
+							}
+						}
+
+						// echo 'absensi Bebek <br>';
+						// for ($i = 0; $i < sizeof($a_absensi); $i++) {
+						// 	echo $a_absensi[$i];
+						// 	echo $v_absensi[$i];
 						// 	echo '<br>';
 						// }
 						// echo '<br>';
-						// echo 'Umur Bebek <br>';
-						// for ($j = 0; $j < sizeof($a_umur); $j++) {
-						// 	echo $a_umur[$j];
-						// 	echo $v_umur[$j];
+						// echo 'pengetahuan Bebek <br>';
+						// for ($j = 0; $j < sizeof($a_pengetahuan); $j++) {
+						// 	echo $a_pengetahuan[$j];
+						// 	echo $v_pengetahuan[$j];
 						// 	echo '<br>';
 						// }
 						// echo '<br>';
-						// echo 'Umur Bebek <br>';
-						// for ($k = 0; $k < sizeof($a_jenis); $k++) {
-						// 	echo $a_jenis[$k];
-						// 	echo $v_jenis[$k];
+						// echo 'pengetahuan Bebek <br>';
+						// for ($k = 0; $k < sizeof($a_kedisiplinan); $k++) {
+						// 	echo $a_kedisiplinan[$k];
+						// 	echo $v_kedisiplinan[$k];
 						// 	echo '<br>';
 						// }
 						// echo '<br>';
@@ -170,99 +209,216 @@
 
 						$hasil = 1;
 						$min = 1;
-						for ($a = 0; $a < sizeof($a_pakan); $a++) {
-							for ($b = 0; $b < sizeof($a_umur); $b++) {
-								for ($c = 0; $c < sizeof($a_jenis); $c++) {
+						for ($a = 0; $a < sizeof($a_absensi); $a++) {
+							for ($b = 0; $b < sizeof($a_pengetahuan); $b++) {
+								for ($c = 0; $c < sizeof($a_kedisiplinan); $c++) {
+									for ($d = 0; $d < sizeof($a_keahlian); $d++) {
 						?>
-									<table class="table">
-										<tr>
-											<th><?= $a_pakan[$a] . ' / ' . $a_umur[$b] . ' / ' . $a_jenis[$c] ?></th>
-											<td>Data min: <?= round(min($a_pakan[$a], $a_umur[$b], $a_jenis[$c]), 3) ?></td>
-											<td><?= $v_pakan[$a] . ' / ' . $v_umur[$b] . ' / ' . $v_jenis[$c] ?></td>
-										</tr>
-									</table>
-									<?php
+										<table class="table">
+											<tr>
+												<th><?= $a_absensi[$a] . ' / ' . $a_pengetahuan[$b] . ' / ' . $a_kedisiplinan[$c] . ' / ' . $a_keahlian[$d] ?></th>
+												<td>Data min: <?= round(min($a_absensi[$a], $a_pengetahuan[$b], $a_kedisiplinan[$c], $a_keahlian[$d]), 3) ?></td>
+												<td><?= $v_absensi[$a] . ' / ' . $v_pengetahuan[$b] . ' / ' . $v_kedisiplinan[$c] . ' / ' . $v_keahlian[$d] ?></td>
+											</tr>
 
-									// echo $a_pakan[$a] . ' / ' . $a_umur[$b] . ' / ' . $a_jenis[$c] . '<br> Data min: ' . round(min($a_pakan[$a], $a_umur[$b], $a_jenis[$c]), 3);
-									if ($v_pakan[$a] == 'Bekatul' && $v_umur[$b] == 'Fase 1' && $v_jenis[$c] == 'Tegal') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Bekatul' && $v_umur[$b] == 'Fase 1' && $v_jenis[$c] == 'Alabio') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Bekatul' && $v_umur[$b] == 'Fase 1' && $v_jenis[$c] == 'Mojosari') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Bekatul' && $v_umur[$b] == 'Fase 2' && $v_jenis[$c] == 'Tegal') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Bekatul' && $v_umur[$b] == 'Fase 2' && $v_jenis[$c] == 'Alabio') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Bekatul' && $v_umur[$b] == 'Fase 2' && $v_jenis[$c] == 'Mojosari') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Bekatul' && $v_umur[$b] == 'Fase 3' && $v_jenis[$c] == 'Tegal') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Bekatul' && $v_umur[$b] == 'Fase 3' && $v_jenis[$c] == 'Alabio') {
-										$status = 'Kurang Layak';
-									} else if ($v_pakan[$a] == 'Bekatul' && $v_umur[$b] == 'Fase 3' && $v_jenis[$c] == 'Mojosari') {
-										$status = 'Kurang Layak';
-									} else if ($v_pakan[$a] == 'Jagung' && $v_umur[$b] == 'Fase 1' && $v_jenis[$c] == 'Tegal') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Jagung' && $v_umur[$b] == 'Fase 1' && $v_jenis[$c] == 'Alabio') {
-										$status = 'Kurang Layak';
-									} else if ($v_pakan[$a] == 'Jagung' && $v_umur[$b] == 'Fase 1' && $v_jenis[$c] == 'Mojosari') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Jagung' && $v_umur[$b] == 'Fase 2' && $v_jenis[$c] == 'Tegal') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Jagung' && $v_umur[$b] == 'Fase 2' && $v_jenis[$c] == 'Alabio') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Jagung' && $v_umur[$b] == 'Fase 2' && $v_jenis[$c] == 'Mojosari') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Jagung' && $v_umur[$b] == 'Fase 3' && $v_jenis[$c] == 'Tegal') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Jagung' && $v_umur[$b] == 'Fase 3' && $v_jenis[$c] == 'Alabio') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Jagung' && $v_umur[$b] == 'Fase 3' && $v_jenis[$c] == 'Mojosari') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Kepala Giling' && $v_umur[$b] == 'Fase 1' && $v_jenis[$c] == 'Tegal') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Kepala Giling' && $v_umur[$b] == 'Fase 1' && $v_jenis[$c] == 'Alabio') {
-										$status = 'Kurang Layak';
-									} else if ($v_pakan[$a] == 'Kepala Giling' && $v_umur[$b] == 'Fase 1' && $v_jenis[$c] == 'Mojosari') {
-										$status = 'Kurang Layak';
-									} else if ($v_pakan[$a] == 'Kepala Giling' && $v_umur[$b] == 'Fase 2' && $v_jenis[$c] == 'Tegal') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Kepala Giling' && $v_umur[$b] == 'Fase 2' && $v_jenis[$c] == 'Alabio') {
-										$status = 'Kurang Layak';
-									} else if ($v_pakan[$a] == 'Kepala Giling' && $v_umur[$b] == 'Fase 2' && $v_jenis[$c] == 'Mojosari') {
-										$status = 'Kurang Layak';
-									} else if ($v_pakan[$a] == 'Kepala Giling' && $v_umur[$b] == 'Fase 3' && $v_jenis[$c] == 'Tegal') {
-										$status = 'Layak';
-									} else if ($v_pakan[$a] == 'Kepala Giling' && $v_umur[$b] == 'Fase 3' && $v_jenis[$c] == 'Alabio') {
-										$status = 'Kurang Layak';
-									} else if ($v_pakan[$a] == 'Kepala Giling' && $v_umur[$b] == 'Fase 3' && $v_jenis[$c] == 'Mojosari') {
-										$status = 'Kurang Layak';
-									}
-									$data_min = min($a_pakan[$a], $a_umur[$b], $a_jenis[$c]);
+											<?php
+
+											// echo $a_absensi[$a] . ' / ' . $a_pengetahuan[$b] . ' / ' . $a_kedisiplinan[$c] . '<br> Data min: ' . round(min($a_absensi[$a], $a_pengetahuan[$b], $a_kedisiplinan[$c]), 3);
+											if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Kurang' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Cukup' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Kurang' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Cukup' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Kurang' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Kurang Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Cukup' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Kurang') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Cukup') {
+												$status = 'Layak';
+											} else if ($v_absensi[$a] == 'Baik' && $v_pengetahuan[$b] == 'Baik' && $v_kedisiplinan[$c] == 'Baik' && $v_keahlian[$d] == 'Baik') {
+												$status = 'Layak';
+											} ?>
+											<td><?= $status ?></td>
+										</table>
+										<?php
+
+										$data_min = min($a_absensi[$a], $a_pengetahuan[$b], $a_kedisiplinan[$c],  $a_keahlian[$d]);
 
 
-									if ($status == 'Layak') {
-										$h_rules = round(4 - ($data_min * 1), 3);
-									} else if ($status == 'Tidak Layak') {
-										$h_rules = round(5 - ($data_min * 1), 3);
-									}
+										if ($status == 'Layak') {
+											$h_rules = round(4 - ($data_min * 1), 3);
+										} else if ($status == 'Kurang Layak') {
+											$h_rules = round(5 - ($data_min * 1), 3);
+										}
 
-									?>
-									<input class="form-control" name="d_hasil<?= $hasil++ ?>" type="hidden" value="<?= round($h_rules * $data_min, 3) ?>">
-									<input class="form-control" type="hidden" name="min<?= $min++ ?>" value="<?= round($data_min, 3) ?>">
+										?>
+										<input class="form-control" name="d_hasil<?= $hasil++ ?>" type="hidden" value="<?= round($h_rules * $data_min, 3) ?>">
+										<input class="form-control" type="hidden" name="min<?= $min++ ?>" value="<?= round($data_min, 3) ?>">
+										<input class="form-control" type="hidden" name="date" value="<?= date('Y-m-d') ?>">
 
 						<?php
-									// echo $v_pakan[$a] . ' / ' . $v_umur[$b] . ' / ' . $v_jenis[$c];
+										// echo $v_absensi[$a] . ' / ' . $v_pengetahuan[$b] . ' / ' . $v_kedisiplinan[$c];
 
+									}
 								}
 							}
 						}
 
 						?>
-						<input type="hidden" name="pakan" value="<?= $pakan ?>">
-						<input type="hidden" name="umur" value="<?= $umur ?>">
-						<input type="hidden" name="jenis" value="<?= $jenis ?>">
+						<input type="hidden" name="absensi" value="<?= $absensi ?>">
+						<input type="hidden" name="pengetahuan" value="<?= $pengetahuan ?>">
+						<input type="hidden" name="kedisiplinan" value="<?= $kedisiplinan ?>">
+						<input type="hidden" name="keahlian" value="<?= $keahlian ?>">
+						<input type="hidden" name="karyawan" value="<?= $karyawan ?>">
 						<button type="submit" class="btn btn-success">Proses Hasil Defuzifikasi</button>
 					</form>
 				</div>

@@ -78,7 +78,7 @@
 															} ?>>Admin</option>
 										<option value="2" <?php if ($user->level_user == '2') {
 																echo 'selected';
-															} ?>>Kepala UPT</option>
+															} ?>>Pemilik</option>
 									</select>
 									<?= form_error('level', '<small class="text-danger">', '</small>'); ?>
 								</div>

@@ -68,7 +68,7 @@
 												<?php
 												} else {
 												?>
-													<span class="badge badge-warning">Kepala UPT</span>
+													<span class="badge badge-warning">Pemilik</span>
 												<?php
 												}  ?>
 											</th>

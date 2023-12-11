@@ -129,8 +129,8 @@
 					<ul id="sidebarnav" class="p-t-30">
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('Admin/cDashboardAdmin') ?>" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('Admin/cUser') ?>" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">User</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('Admin/cPengelola') ?>" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Pengelola</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('Admin/cPenghasilan') ?>" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Penghasilan Per Panen</span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('Admin/cKaryawan') ?>" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Karyawan</span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('Admin/cVariabel') ?>" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Variabel Kriteria</span></a></li>
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= base_url('Admin/cAnalisis') ?>" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Analisis Fuzzy Logic</span></a></li>
 
 					</ul>

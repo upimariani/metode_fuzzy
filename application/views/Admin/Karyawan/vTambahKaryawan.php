@@ -5,12 +5,12 @@
 	<div class="page-breadcrumb">
 		<div class="row">
 			<div class="col-12 d-flex no-block align-items-center">
-				<h4 class="page-title"><i class="mdi mdi-chart-areaspline"></i> Pendapatan Per Panen</h4>
+				<h4 class="page-title"><i class="mdi mdi-account-circle font-24"></i> Karyawan</h4>
 				<div class="ml-auto text-right">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Library</li>
+							<li class="breadcrumb-item active" aria-current="page">Karyawan</li>
 						</ol>
 					</nav>
 				</div>
@@ -30,46 +30,49 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="card">
-					<form action="<?= base_url('Admin/cPenghasilan/create') ?>" method="POST" class="form-horizontal">
+					<form action="<?= base_url('Admin/cKaryawan/create') ?>" method="POST" class="form-horizontal">
 						<div class="card-body">
-							<h4 class="card-title">Tambah Pendapatan</h4>
+							<h4 class="card-title">Tambah Data Karyawan</h4>
 							<div class="form-group row">
-								<label for="fname" class="col-sm-3 text-right control-label col-form-label">Nama Pengelola</label>
+								<label for="fname" class="col-sm-3 text-right control-label col-form-label">Nama Karyawan</label>
 								<div class="col-sm-9">
-									<select class="form-control" name="pengelola">
-										<option value="">---Pilih Pengelola---</option>
-										<?php
-										foreach ($pengelola as $key => $value) {
-										?>
-											<option value="<?= $value->id_pengelola ?>"><?= $value->nama_pengelola ?></option>
-										<?php
-										}
-										?>
+									<input type="text" name="nama" class="form-control" id="fname" placeholder="Masukkan Nama Karyawan">
+									<?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Jenis Kelamin</label>
+								<div class="col-sm-9">
+									<select class="form-control" name="jk">
+										<option value="">---Pilih Jenis Kelamin---</option>
+										<option value="Perempuan">Perempuan</option>
+										<option value="Laki - Laki">Laki - Laki</option>
 									</select>
-									<?= form_error('pengelola', '<small class="text-danger">', '</small>'); ?>
+									<?= form_error('jk', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Tanggal Panen</label>
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Alamat Karyawan</label>
 								<div class="col-sm-9">
-									<input type="date" name="tgl" class="form-control" id="lname" placeholder="Last Name Here">
-									<?= form_error('tgl', '<small class="text-danger">', '</small>'); ?>
+									<input type="text" name="alamat" class="form-control" id="lname" placeholder="Masukkan Alamat Karyawan">
+									<?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Jumlah Telur</label>
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">No Telepon</label>
 								<div class="col-sm-9">
-									<input type="text" name="jml_telur" class="form-control" id="lname" placeholder="Masukkan Jumlah Telur">
-									<?= form_error('jml_telur', '<small class="text-danger">', '</small>'); ?>
+									<input type="text" name="no_hp" class="form-control" id="lname" placeholder="Masukkan No Telepon">
+									<?= form_error('no_hp', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="email1" class="col-sm-3 text-right control-label col-form-label">Jumlah Bebek</label>
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Divisi</label>
 								<div class="col-sm-9">
-									<input type="text" name="jml_bebek" class="form-control" id="email1" placeholder="Masukkan Jumlah Bebek">
-									<?= form_error('jml_bebek', '<small class="text-danger">', '</small>'); ?>
+									<input type="text" name="divisi" class="form-control" id="lname" placeholder="Masukkan Divisi">
+									<?= form_error('divisi', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
+
 						</div>
 						<div class="border-top">
 							<div class="card-body">

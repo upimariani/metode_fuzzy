@@ -5,12 +5,12 @@
 	<div class="page-breadcrumb">
 		<div class="row">
 			<div class="col-12 d-flex no-block align-items-center">
-				<h4 class="page-title"><i class="mdi mdi-chart-areaspline"></i> Pendapatan Per Panen</h4>
+				<h4 class="page-title"><i class="mdi mdi-chart-areaspline"></i> Variabel Perhitungan</h4>
 				<div class="ml-auto text-right">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Library</li>
+							<li class="breadcrumb-item active" aria-current="page">Variabel</li>
 						</ol>
 					</nav>
 				</div>
@@ -30,46 +30,29 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="card">
-					<form action="<?= base_url('Admin/cPenghasilan/update/' . $penghasilan->id_pendapatan) ?>" method="POST" class="form-horizontal">
+					<form action="<?= base_url('Admin/cVariabel/update/' . $variabel->id_variabel) ?>" method="POST" class="form-horizontal">
 						<div class="card-body">
-							<h4 class="card-title">Update Pendapatan</h4>
+							<h4 class="card-title">Tambah Variabel Perhitungan</h4>
+
 							<div class="form-group row">
-								<label for="fname" class="col-sm-3 text-right control-label col-form-label">Nama Pengelola</label>
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Nama Variabel</label>
 								<div class="col-sm-9">
-									<select class="form-control" name="pengelola">
-										<option value="">---Pilih Pengelola---</option>
-										<?php
-										foreach ($pengelola as $key => $value) {
-										?>
-											<option value="<?= $value->id_pengelola ?>" <?php if ($value->id_pengelola == $penghasilan->id_pengelola) {
-																							echo 'selected';
-																						} ?>><?= $value->nama_pengelola ?></option>
-										<?php
-										}
-										?>
-									</select>
-									<?= form_error('pengelola', '<small class="text-danger">', '</small>'); ?>
+									<input type="text" name="nama" value="<?= $variabel->nama_variabel ?>" class="form-control" id="lname" placeholder="Masukkan Nama Variabel">
+									<?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Tanggal Panen</label>
+								<label for="email1" class="col-sm-3 text-right control-label col-form-label">Sub Kriteria</label>
 								<div class="col-sm-9">
-									<input type="date" name="tgl" value="<?= $penghasilan->tgl_panen ?>" class="form-control" id="lname" placeholder="Last Name Here">
-									<?= form_error('tgl', '<small class="text-danger">', '</small>'); ?>
+									<input type="text" name="sub" value="<?= $variabel->sub_kriteria ?>" class="form-control" id="email1" placeholder="Masukkan Sub Kriteria">
+									<?= form_error('sub', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Jumlah Telur</label>
+								<label for="email1" class="col-sm-3 text-right control-label col-form-label">Bobot</label>
 								<div class="col-sm-9">
-									<input type="text" name="jml_telur" value="<?= $penghasilan->jml_panen ?>" class="form-control" id="lname" placeholder="Masukkan Jumlah Telur">
-									<?= form_error('jml_telur', '<small class="text-danger">', '</small>'); ?>
-								</div>
-							</div>
-							<div class="form-group row">
-								<label for="email1" class="col-sm-3 text-right control-label col-form-label">Jumlah Bebek</label>
-								<div class="col-sm-9">
-									<input type="text" name="jml_bebek" value="<?= $penghasilan->jml_bbk ?>" class="form-control" id="email1" placeholder="Masukkan Jumlah Bebek">
-									<?= form_error('jml_bebek', '<small class="text-danger">', '</small>'); ?>
+									<input type="text" name="bobot" value="<?= $variabel->bobot ?>" class="form-control" id="email1" placeholder="Masukkan Bobot">
+									<?= form_error('bobot', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 						</div>

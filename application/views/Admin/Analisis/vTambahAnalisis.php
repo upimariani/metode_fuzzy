@@ -5,12 +5,12 @@
 	<div class="page-breadcrumb">
 		<div class="row">
 			<div class="col-12 d-flex no-block align-items-center">
-				<h4 class="page-title"><i class="mdi mdi-chart-bar"></i> Analisis Kelayakan Telur Bebek</h4>
+				<h4 class="page-title"><i class="mdi mdi-chart-bar"></i> Analisis Karyawan Terbaik</h4>
 				<div class="ml-auto text-right">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Library</li>
+							<li class="breadcrumb-item active" aria-current="page">Analisis</li>
 						</ol>
 					</nav>
 				</div>
@@ -34,34 +34,51 @@
 						<div class="card-body">
 							<h4 class="card-title">Tambah Data Analisis</h4>
 							<div class="form-group row">
-								<label for="fname" class="col-sm-3 text-right control-label col-form-label">Tanggal Panen</label>
+								<label for="fname" class="col-sm-3 text-right control-label col-form-label">Karyawan</label>
 								<div class="col-sm-9">
-									<input type="date" name="date" class="form-control" id="fname" placeholder="Masukkan Nama Pengelola">
-									<?= form_error('date', '<small class="text-danger">', '</small>'); ?>
+									<select class="form-control" name="karyawan">
+										<option value="">---Pilih Karyawan---</option>
+										<?php
+										foreach ($karyawan as $key => $value) {
+											if ($value->hasil == NULL) {
+										?>
+												<option value="<?= $value->id_karyawan ?>"><?= $value->nama_karyawan ?></option>
+										<?php
+											}
+										}
+										?>
+									</select>
+									<?= form_error('karyawan', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Pakan Bebek</label>
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Absensi</label>
 								<div class="col-sm-9">
-									<input type="text" name="pakan" class="form-control" id="lname" placeholder="Masukkan Nilai Pakan Bebek">
-									<?= form_error('pakan', '<small class="text-danger">', '</small>'); ?>
+									<input type="number" name="absensi" max="80" class="form-control">
+									<?= form_error('absensi', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Umur Bebek</label>
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Pengetahuan</label>
 								<div class="col-sm-9">
-									<input type="text" name="umur" class="form-control" id="lname" placeholder="Masukkan Umur Bebek">
-									<?= form_error('umur', '<small class="text-danger">', '</small>'); ?>
+									<input type="number" name="pengetahuan" max="80" class="form-control">
+									<?= form_error('pengetahuan', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
 							<div class="form-group row">
-								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Jenis Bebek</label>
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Kedisiplinan</label>
 								<div class="col-sm-9">
-									<input type="text" name="jenis" class="form-control" id="lname" placeholder="Masukkan Nilai Jenis Indukan">
-									<?= form_error('jenis', '<small class="text-danger">', '</small>'); ?>
+									<input type="number" name="kedisiplinan" max="80" class="form-control">
+									<?= form_error('kedisiplinan', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>
-
+							<div class="form-group row">
+								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Keahlian</label>
+								<div class="col-sm-9">
+									<input type="number" name="keahlian" max="80" class="form-control">
+									<?= form_error('keahlian', '<small class="text-danger">', '</small>'); ?>
+								</div>
+							</div>
 						</div>
 						<div class="border-top">
 							<div class="card-body">

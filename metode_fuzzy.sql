@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Jun 2023 pada 03.00
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.9
+-- Generation Time: Dec 11, 2023 at 02:10 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,68 +25,55 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hasil_analisis`
+-- Table structure for table `hasil_analisis`
 --
 
 CREATE TABLE `hasil_analisis` (
   `id_lap` int(11) NOT NULL,
-  `id_pendapatan` int(11) NOT NULL,
-  `tgl_periksa` varchar(20) NOT NULL,
-  `pakan_bbk` varchar(20) NOT NULL,
-  `umur_bbk` varchar(20) NOT NULL,
-  `jenis` varchar(20) NOT NULL,
-  `hasil` varchar(20) NOT NULL,
-  `status` varchar(20) NOT NULL
+  `id_karyawan` int(11) NOT NULL,
+  `tgl_analisis` int(11) NOT NULL,
+  `absensi` varchar(20) NOT NULL,
+  `pengetahuan` varchar(20) NOT NULL,
+  `kedisiplinan` varchar(20) NOT NULL,
+  `keahlian` varchar(20) NOT NULL,
+  `hasil` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hasil_analisis`
+--
+
+INSERT INTO `hasil_analisis` (`id_lap`, `id_karyawan`, `tgl_analisis`, `absensi`, `pengetahuan`, `kedisiplinan`, `keahlian`, `hasil`) VALUES
+(1, 1, 2023, '69', '78', '66', '75', '4.4'),
+(2, 2, 2023, '78', '68', '79', '80', '3.83');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pendapatan`
+-- Table structure for table `karyawan`
 --
 
-CREATE TABLE `pendapatan` (
-  `id_pendapatan` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_pengelola` int(11) NOT NULL,
-  `tgl_panen` varchar(20) NOT NULL,
-  `jml_panen` int(11) NOT NULL,
-  `jml_bbk` int(11) NOT NULL
+CREATE TABLE `karyawan` (
+  `id_karyawan` int(11) NOT NULL,
+  `nama_karyawan` varchar(125) NOT NULL,
+  `alamat` text NOT NULL,
+  `no_hp` varchar(15) NOT NULL,
+  `divisi` varchar(125) NOT NULL,
+  `jk` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pendapatan`
+-- Dumping data for table `karyawan`
 --
 
-INSERT INTO `pendapatan` (`id_pendapatan`, `id_user`, `id_pengelola`, `tgl_panen`, `jml_panen`, `jml_bbk`) VALUES
-(2, 1, 1, '2023-06-05', 21, 19);
+INSERT INTO `karyawan` (`id_karyawan`, `nama_karyawan`, `alamat`, `no_hp`, `divisi`, `jk`) VALUES
+(1, 'Karyawan A', 'Kuningan, Jawa Barat', '089987654543', 'Operastor', 'Perempuan'),
+(2, 'Karyawan B', 'Kuningan, Jawa Barat', '08512232123', 'Operastor', 'Laki - Laki');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengelola`
---
-
-CREATE TABLE `pengelola` (
-  `id_pengelola` int(11) NOT NULL,
-  `nama_pengelola` varchar(125) NOT NULL,
-  `alamat_pengelola` text NOT NULL,
-  `no_hp_pengelola` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `pengelola`
---
-
-INSERT INTO `pengelola` (`id_pengelola`, `nama_pengelola`, `alamat_pengelola`, `no_hp_pengelola`) VALUES
-(1, 'Dadang', 'regf', '089887565432'),
-(3, 'Maman Ahmad', 'brebes rt 05', '089887565432'),
-(4, 'Wawan Darmawan', 'Lingk. Harapan Brebes', '089887565432');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -100,67 +87,89 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `alamat`, `no_hp`, `username`, `password`, `level_user`) VALUES
-(1, 'Admin', 'Brebes', '089987676512', 'admin', 'admin', 1);
+(1, 'Admin', 'Brebes', '089987676512', 'admin', 'admin', 1),
+(3, 'Pemilik', 'Kuningan, Jawa Barat', '089987654543', 'pemilik', 'pemilik', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `variabel`
+--
+
+CREATE TABLE `variabel` (
+  `id_variabel` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `nama_variabel` varchar(20) NOT NULL,
+  `sub_kriteria` varchar(20) NOT NULL,
+  `bobot` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `variabel`
+--
+
+INSERT INTO `variabel` (`id_variabel`, `id_user`, `nama_variabel`, `sub_kriteria`, `bobot`) VALUES
+(1, 1, 'Absensi', 'Baik', 3);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `hasil_analisis`
+-- Indexes for table `hasil_analisis`
 --
 ALTER TABLE `hasil_analisis`
   ADD PRIMARY KEY (`id_lap`);
 
 --
--- Indeks untuk tabel `pendapatan`
+-- Indexes for table `karyawan`
 --
-ALTER TABLE `pendapatan`
-  ADD PRIMARY KEY (`id_pendapatan`);
+ALTER TABLE `karyawan`
+  ADD PRIMARY KEY (`id_karyawan`);
 
 --
--- Indeks untuk tabel `pengelola`
---
-ALTER TABLE `pengelola`
-  ADD PRIMARY KEY (`id_pengelola`);
-
---
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- Indexes for table `variabel`
+--
+ALTER TABLE `variabel`
+  ADD PRIMARY KEY (`id_variabel`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `hasil_analisis`
+-- AUTO_INCREMENT for table `hasil_analisis`
 --
 ALTER TABLE `hasil_analisis`
-  MODIFY `id_lap` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_lap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `pendapatan`
+-- AUTO_INCREMENT for table `karyawan`
 --
-ALTER TABLE `pendapatan`
-  MODIFY `id_pendapatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `karyawan`
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `pengelola`
---
-ALTER TABLE `pengelola`
-  MODIFY `id_pengelola` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `variabel`
+--
+ALTER TABLE `variabel`
+  MODIFY `id_variabel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

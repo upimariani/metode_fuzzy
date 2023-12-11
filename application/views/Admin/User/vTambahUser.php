@@ -74,7 +74,7 @@
 									<select class="form-control" name="level">
 										<option value="">---Pilih Level User---</option>
 										<option value="1">Admin</option>
-										<option value="2">Kepala UPT</option>
+										<option value="2">Pemilik</option>
 									</select>
 									<?= form_error('level', '<small class="text-danger">', '</small>'); ?>
 								</div>
