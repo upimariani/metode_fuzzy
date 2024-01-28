@@ -37,7 +37,22 @@
 							<div class="form-group row">
 								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Nama Variabel</label>
 								<div class="col-sm-9">
-									<input type="text" name="nama" value="<?= $variabel->nama_variabel ?>" class="form-control" id="lname" placeholder="Masukkan Nama Variabel">
+									<select class="form-control" name="nama">
+										<option value="">---Pilih Nama Variabel---</option>
+										<option value="Absensi" <?php if ($variabel->nama_variabel == 'Absensi') {
+																	echo 'selected';
+																} ?>>Absensi</option>
+										<option value="Pengetahuan" <?php if ($variabel->nama_variabel == 'Pengetahuan') {
+																		echo 'selected';
+																	} ?>>Pengetahuan</option>
+										<option value="Kedisiplinan" <?php if ($variabel->nama_variabel == 'Kedisiplinan') {
+																			echo 'selected';
+																		} ?>>Kedisiplinan</option>
+										<option value="Keahlian" <?php if ($variabel->nama_variabel == 'Keahlian') {
+																		echo 'selected';
+																	} ?>>Keahlian</option>
+									</select>
+									<!-- <input type="text" name="nama" value="<?= $variabel->nama_variabel ?>" class="form-control" id="lname" placeholder="Masukkan Nama Variabel"> -->
 									<?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>

@@ -73,19 +73,7 @@
 									}
 									?>
 								</tbody>
-								<tfoot>
-									<tr>
-										<th>No.</th>
-										<th>Tanggal Analisis</th>
-										<th>Nama Karyawan</th>
-										<th>Absensi</th>
-										<th>Pengetahuan</th>
-										<th>Kedisiplinan</th>
-										<th>Keahlian</th>
-										<th>Hasil</th>
-										<th>Action</th>
-									</tr>
-								</tfoot>
+								
 							</table>
 						</div>
 					</div>

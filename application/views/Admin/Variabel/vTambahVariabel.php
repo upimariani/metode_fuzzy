@@ -37,7 +37,14 @@
 							<div class="form-group row">
 								<label for="lname" class="col-sm-3 text-right control-label col-form-label">Nama Variabel</label>
 								<div class="col-sm-9">
-									<input type="text" name="nama" class="form-control" id="lname" placeholder="Masukkan Nama Variabel">
+									<select class="form-control" name="nama">
+										<option value="">---Pilih Nama Variabel---</option>
+										<option value="Absensi">Absensi</option>
+										<option value="Pengetahuan">Pengetahuan</option>
+										<option value="Kedisiplinan">Kedisiplinan</option>
+										<option value="Keahlian">Keahlian</option>
+									</select>
+									<!-- <input type="text" name="nama" class="form-control" id="lname" placeholder="Masukkan Nama Variabel"> -->
 									<?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
 								</div>
 							</div>

@@ -20,8 +20,16 @@ class mAnalisis extends CI_Model
 		$this->db->from('hasil_analisis');
 		$this->db->join('karyawan', 'hasil_analisis.id_karyawan = karyawan.id_karyawan', 'left');
 		$this->db->order_by('hasil', 'desc');
-
 		return $this->db->get()->result();
+	}
+	public function juara()
+	{
+		$this->db->select('*');
+		$this->db->from('hasil_analisis');
+		$this->db->join('karyawan', 'hasil_analisis.id_karyawan = karyawan.id_karyawan', 'left');
+		$this->db->order_by('hasil', 'desc');
+		$this->db->limit(1);
+		return $this->db->get()->row();
 	}
 	public function delete($id)
 	{

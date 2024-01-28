@@ -5,7 +5,7 @@
 	<div class="page-breadcrumb">
 		<div class="row">
 			<div class="col-12 d-flex no-block align-items-center">
-				<h4 class="page-title"><i class="mdi mdi-chart-bar"></i> Analisis Kelayakan Telur Bebek</h4>
+				<h4 class="page-title"><i class="mdi mdi-chart-bar"></i> Analisis Karyawan Terbaik</h4>
 				<div class="ml-auto text-right">
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">

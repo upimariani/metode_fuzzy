@@ -65,21 +65,9 @@
 									<?php
 									}
 									?>
-
-
 								</tbody>
-								<tfoot>
-									<tr>
-										<th>No.</th>
-										<th>Nama Variabel</th>
-										<th>Sub Kriteria</th>
-										<th>Bobot</th>
-										<th>Action</th>
-									</tr>
-								</tfoot>
 							</table>
 						</div>
-
 					</div>
 				</div>
 			</div>

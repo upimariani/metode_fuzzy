@@ -71,17 +71,7 @@
 									?>
 
 								</tbody>
-								<tfoot>
-									<tr>
-										<th>No</th>
-										<th>Nama Karyawan</th>
-										<th>Jenis Kelamin</th>
-										<th>Alamat Karyawan</th>
-										<th>No Telepon</th>
-										<th>Divisi</th>
-										<th>Action</th>
-									</tr>
-								</tfoot>
+
 							</table>
 						</div>
 

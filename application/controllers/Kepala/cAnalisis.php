@@ -67,6 +67,10 @@ class cAnalisis extends CI_Controller
 			$pdf->Cell(40, 7, $value->hasil, 1, 1, 'R');
 		}
 
+		$pdf->SetFont('Times', 'B', 10);
+		$juara = $this->mAnalisis->juara();
+		$pdf->Cell(200, 20, '*)Berdasarkan hasil analisis maka rekomendasi sebagai karyawan terbaik adalah ' . $juara->nama_karyawan, 0, 1, 'L');
+
 
 
 		$pdf->Output();

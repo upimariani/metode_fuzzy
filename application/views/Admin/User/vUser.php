@@ -81,17 +81,7 @@
 									?>
 
 								</tbody>
-								<tfoot>
-									<tr>
-										<th>No</th>
-										<th>Nama User</th>
-										<th>Alamat</th>
-										<th>No Telepon</th>
-										<th>Akun</th>
-										<th>Level User</th>
-										<th>Action</th>
-									</tr>
-								</tfoot>
+
 							</table>
 						</div>
 
