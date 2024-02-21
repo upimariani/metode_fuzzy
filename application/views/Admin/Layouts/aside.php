@@ -16,7 +16,7 @@
 		<!-- Topbar header - style you can find in pages.scss -->
 		<!-- ============================================================== -->
 		<header class="topbar" data-navbarbg="skin5">
-			<nav class="navbar top-navbar navbar-expand-md navbar-dark">
+			<nav class="navbar top-navbar navbar-expand-md navbar-light">
 				<div class="navbar-header" data-logobg="skin5">
 					<!-- This is for the sidebar toggle which is visible on mobile only -->
 					<a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
@@ -28,14 +28,14 @@
 						<b class="logo-icon p-l-10">
 							<!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
 							<!-- Dark Logo icon -->
-							<img src="<?= base_url('asset/matrix-admin-master/') ?>assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+							<!-- <img src="<?= base_url('asset/logo.jpg') ?>" alt="homepage" class="light-logo" /> -->
 
 						</b>
 						<!--End Logo icon -->
 						<!-- Logo text -->
 						<span class="logo-text">
 							<!-- dark Logo text -->
-							<img src="<?= base_url('asset/matrix-admin-master/') ?>assets/images/logo-text.png" alt="homepage" class="light-logo" />
+							<img style="width: 120px; align: center;" src="<?= base_url('asset/logo1.jpg') ?>" alt="homepage" class="light-logo" />
 
 						</span>
 						<!-- Logo icon -->
