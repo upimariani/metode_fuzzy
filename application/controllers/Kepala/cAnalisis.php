@@ -13,6 +13,7 @@ class cAnalisis extends CI_Controller
 
 	public function index()
 	{
+
 		$data = array(
 			'hasil' => $this->mAnalisis->select_hasil()
 		);
@@ -57,7 +58,8 @@ class cAnalisis extends CI_Controller
 
 		$pdf->SetFont('Times', '', 9);
 		$no = 1;
-		$karyawan = $this->mAnalisis->select_hasil();
+		$jml_data = $this->input->post('jumlah');
+		$karyawan = $this->mAnalisis->hasil_cetak($jml_data);
 		foreach ($karyawan as $key => $value) {
 			$pdf->Cell(10, 7, $no++, 1, 0, 'C');
 			$pdf->Cell(35, 7, $value->nama_karyawan, 1, 0, 'C');

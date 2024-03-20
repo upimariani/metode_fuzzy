@@ -40,12 +40,13 @@
 <script src="<?= base_url('asset/matrix-admin-master/') ?>dist/js/pages/chart/chart-page-init.js"></script>
 <script src="<?= base_url('asset/matrix-admin-master/') ?>assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
 <script src="<?= base_url('asset/matrix-admin-master/') ?>assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-<script src="<?= base_url('asset/matrix-admin-master/') ?>assets/extra-libs/DataTables/datatables.min.js"></script>
+<link href="<?= base_url('asset/') ?>DataTables/datatables.min.css" rel="stylesheet">
+<script src="<?= base_url('asset/') ?>DataTables/datatables.min.js"></script>
 <script>
-	/****************************************
-	 *       Basic Table                   *
-	 ****************************************/
-	$('#zero_config').DataTable();
+	$('#myTable').DataTable({
+		select: true,
+		lengthMenu: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	});
 </script>
 </body>
 

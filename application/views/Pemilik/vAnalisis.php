@@ -36,10 +36,34 @@
 						<?php
 						}
 						?>
-						<a href="<?= base_url('Kepala/cAnalisis/cetak') ?>" class="btn btn-success mb-3"><i class="mdi mdi-archive font-24"></i> Cetak Data Analisis</a>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="card">
+									<div class="body-card">
+										<form action="<?= base_url('Kepala/cAnalisis/cetak') ?>" method="POST">
+											<select class="form-control" name="jumlah" required>
+												<option value="">---Pilih Jumlah Data Hasil Analisis---</option>
+												<?php
+												for ($i = 1; $i <= 20; $i++) {
+												?>
+													<option value="<?= $i ?>"><?= $i ?></option>
+												<?php
+												}
+												?>
+											</select>
+
+
+											<button type="submit" class="btn btn-success mb-3 mt-3"><i class="mdi mdi-archive font-24"></i> Cetak Data Analisis</button>
+										</form>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
 
 						<div class="table-responsive">
-							<table id="zero_config" class="table table-striped table-bordered">
+							<table id="myTable" class="table table-striped table-bordered">
 								<thead>
 									<tr>
 										<th>No.</th>
